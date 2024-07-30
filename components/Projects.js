@@ -18,7 +18,6 @@ const Projects = () => {
 
   return (
     <div className="z-50 px-5 mt-24">
-      <div id="projects"/>
       <motion.div
         ref={ref}
         variants={{

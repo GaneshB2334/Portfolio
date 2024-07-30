@@ -9,7 +9,9 @@ const Content = () => {
     <div className="bg-dark-900 w-full min-h-screen flex flex-col overflow-y-scroll">
       <div id="about"/>
       <About />
+      <div id="skills"/>
       <Skills />
+      <div id="projects"/>
       <Projects />
       <Footer/>
     </div>

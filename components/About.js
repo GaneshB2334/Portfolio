@@ -1,5 +1,5 @@
 import { motion, useAnimation, useInView } from "framer-motion";
-import { Github, Linkedin, LinkedinIcon, Mail } from "lucide-react";
+import { Github, LinkedinIcon, Mail } from "lucide-react";
 import { useEffect, useRef } from "react";
 
 const About = () => {
@@ -16,7 +16,7 @@ const About = () => {
   }, [controls, isInView]);
 
   return (
-    <div className="z-50 px-5 max-md:mt-24 h-screen content-center text-white">
+    <div className="z-50 px-5 max-md:mt-10 h-screen content-center text-white">
       <div ref={ref} className="p-5">
         <motion.div
           variants={{

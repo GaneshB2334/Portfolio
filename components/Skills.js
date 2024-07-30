@@ -19,7 +19,6 @@ const Skills = () => {
 
   return (
     <div className="md:w-full w-screen mt-24 md:mt-10 p-5 text-light-100 z-50">
-      <div id="skills"/>
       <motion.div
         ref={ref}
         variants={{

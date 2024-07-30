@@ -34,7 +34,7 @@ const Navbar = () => {
         animate="visible"
         className="text-center"
       >
-        <Image src={ProgrammerIcon} className="md:w-[200px] w-[70px]" />
+        <Image src={ProgrammerIcon} className="md:w-[200px] w-[70px]" alt="ProgrammerIcon"/>
       </motion.div>
       <motion.div
         variants={{
