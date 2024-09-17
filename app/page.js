@@ -9,9 +9,9 @@ export default function Home() {
 
   return (
     <main className="relative h-screen w-screen">
-      <div className="flex md:flex-row flex-col">
+      <div className="flex lg:flex-row max-md:flex-col">
         <Navbar />
-        <div className="overflow-y-scroll md:w-3/4 max-h-screen">
+        <div className="">
           <Content />
         </div>
       </div>

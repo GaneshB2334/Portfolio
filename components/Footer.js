@@ -1,24 +1,10 @@
 "use client";
-import { motion, useAnimation, useInView } from 'framer-motion';
-import { useEffect, useRef } from 'react';
+import { motion } from 'framer-motion';
 
 const Footer = () => {
-  const controls = useAnimation();
-  const ref = useRef(null);
-  const isInView = useInView(ref);
-
-  useEffect(() => {
-    if (isInView) {
-      controls.start("visible");
-    }else{
-      controls.start("hidden");
-    }
-  }
-  , [controls, isInView]);
 
   return (
     <motion.div
-    ref={ref}
     variants={{
       hidden: {
         opacity: 0,
@@ -34,7 +20,7 @@ const Footer = () => {
       },
     }}
     initial="hidden"
-    animate={controls}
+    animate="visible"
      className='w-full font-bold text-lg bg-dark-900 text-white p-10 text-center content-center'>
       &copy; {new Date().getFullYear()} Ganesh Bastapure
       Inc. All rights reserved.

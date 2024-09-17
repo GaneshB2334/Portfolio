@@ -17,7 +17,7 @@ const Projects = () => {
   }, [isInView, controls]);
 
   return (
-    <div className="z-50 px-5 mt-24">
+    <div className="z-50 px-5 py-24">
       <motion.div
         ref={ref}
         variants={{
@@ -35,8 +35,8 @@ const Projects = () => {
           },
         }}
         initial="hidden"
-        animate={controls}
-        className="z-[50] flex w-full p-5 justify-center items-center flex-wrap"
+        animate="visible"
+        className="z-[50] flex gap-5 w-full p-5 justify-center items-center flex-wrap"
       >
         {projects.map((project, index) => (
           <Project

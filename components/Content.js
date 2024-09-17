@@ -6,7 +6,7 @@ import Footer from "./Footer";
 
 const Content = () => {
   return (
-    <div className="bg-dark-900 w-full min-h-screen max-md:mt-24 flex flex-col overflow-y-scroll">
+    <div className="bg-dark-900 w-full flex flex-col overflow-y-scroll overflow-x-hidden">
       <div id="about"/>
       <About />
       <div id="skills"/>

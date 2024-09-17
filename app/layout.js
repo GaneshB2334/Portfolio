@@ -14,9 +14,7 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body style={{
-        minHeight: "100vh",
-      }} className={inter.className}>
+      <body className={inter.className}>
         <StarBgCanvas />
         {children}
       </body>

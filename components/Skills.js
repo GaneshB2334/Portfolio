@@ -11,47 +11,44 @@ const Skills = () => {
   useEffect(() => {
     if (isInView) {
       controls.start("visible");
-    }else{
+    } else {
       controls.start("hidden");
     }
   }, [isInView, controls]);
-  
 
   return (
-    <div className="md:w-full w-screen mt-24 md:mt-10 p-5 text-light-100 z-50">
-      <motion.div
-        ref={ref}
-        variants={{
-          hidden: {
-            opacity: 0,
-            y: -100,
-          },
-          visible: {
-            opacity: 1,
-            y: 0,
-            transition: {
-              delay: 0.5,
-              duration: 0.5,
-            },
-          },
-        }}
-        initial="hidden"
-        animate={controls}
-        className="w-full z-100 flex flex-wrap p-5"
-      >
+    <div className="lg:w-full w-screen p-5 py-24 text-light-100 z-50 flex justify-center">
+      <motion.div ref={ref} className="w-full lg:w-2/3 z-100 flex flex-wrap gap-10  p-5">
         {icons.map((icon, index) => (
-          <div
+          <motion.div
+          variants={{
+            "hidden": {
+              scale: 0,
+            },
+            "visible": {
+              scale: 1,
+              transition: {
+                delay: 0.2,
+                duration: 0.5,
+                type: "spring",
+                stiffness: 100,
+                damping: 10,
+              },
+            },
+          }}
+            initial="hidden"
+            animate={controls}
             key={index}
-            className="flex flex-col items-center justify-center w-1/4 h-1/4 z-50 p-2 "
+            className="flex flex-col items-center justify-center z-50 p-2 "
           >
             <Image
               className="drop-shadow-[10px_10px_2px_rgba(0,0,0,0.8)]"
               src={icon.src}
               alt={icon.iconName}
-              width={100}
-              height={100}
+              width={70}
+              height={70}
             />
-          </div>
+          </motion.div>
         ))}
       </motion.div>
     </div>

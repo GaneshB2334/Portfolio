@@ -1,10 +1,10 @@
 "use client";
-import ProgrammerIcon from "@/public/Programmer.png";
+import { Menu, X } from "lucide-react";
+import React, { useState } from "react";
 import { motion } from "framer-motion";
-import { Github, Linkedin, Mail, MapPin } from "lucide-react";
-import Image from "next/image";
 
 const Navbar = () => {
+  const [isOpen, setIsOpen] = useState(false);
   const scrollTo = (e) => {
     e.preventDefault();
     const element = document.getElementById(e.target.name);
@@ -12,120 +12,99 @@ const Navbar = () => {
       behavior: "smooth",
     });
   };
-
   return (
-    <div className="flex md:flex-col justify-evenly max-md:fixed top-0 max-md:backdrop-blur-3xl max-md:z-[60] items-center w-screen h-24 md:w-1/4 md:h-screen  bg-gradient-to-r from-dark-900 to-dark-100 z-50 text-light-100 py-8 shadow-lg shadow-dark-100 ">
-      <motion.div
-        variants={{
-          hidden: {
-            opacity: 0,
-            y: -100,
-          },
-          visible: {
-            opacity: 1,
-            y: 0,
-            transition: {
-              delay: 0.5,
-              duration: 0.5,
-            },
-          },
-        }}
-        initial="hidden"
-        animate="visible"
-        className="text-center"
-      >
-        <Image src={ProgrammerIcon} className="md:w-[200px] w-[70px]" alt="ProgrammerIcon"/>
-      </motion.div>
-      <motion.div
-        variants={{
-          hidden: {
-            opacity: 0,
-            scale: 0.7,
-          },
-          visible: {
-            opacity: 1,
-            scale: 1,
-            transition: {
-              delay: 0.5,
-              duration: 0.5,
-            },
-          },
-        }}
-        initial="hidden"
-        animate="visible"
-        className="p-5 hidden md:block"
-      >
-        <div className="font-bold text-2xl ">Ganesh Bastapure</div>
-        <div className="flex flex-col gap-2 my-2 text-lg">
-          <div className="flex items-center hover:underline gap-2">
-            <Mail />{" "}
-            <a href="mailto:bastapureganesh21@gmail.com" target="_blank">
-              bastapureganesh@gmail.com
-            </a>
-          </div>
-          <div className="flex items-center hover:underline gap-2">
-            <Linkedin />{" "}
-            <a
-              target="_blank"
-              href="https://www.linkedin.com/in/ganesh-bastapure-641116257/"
+    <div className="fixed top-0 left-0 z-[100] backdrop-blur-xl">
+      <nav className="w-screen text-white p-4">
+        <div className="container mx-auto flex justify-between items-center h-14">
+          <div className="text-3xl font-extrabold"><span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-600 to-violet-500 [text-shadow:2px_2px_2px_rgba(0,0,0,0.25)]">Ganesh</span> <span className="text-transparent bg-clip-text bg-gradient-to-r from-violet-500 to-cyan-600">Bastapure</span></div>
+          <ul className="flex max-md:hidden">
+            <div className="text-xl flex justify-between gap-5 md:justify-end px-5 ">
+              <button
+                name="about"
+                className="hover:text-dark-100 transition-all font-bold"
+                onClick={scrollTo}
+              >
+                About
+              </button>
+              <button
+                name="skills"
+                className="hover:text-dark-100 transition-all font-bold"
+                onClick={scrollTo}
+              >
+                Skills
+              </button>
+              <button
+                name="projects"
+                className="hover:text-dark-100 transition-all font-bold"
+                onClick={scrollTo}
+              >
+                Projects
+              </button>
+            </div>
+          </ul>
+          <div className="hidden max-md:block">
+            <motion.div className="absolute right-10 top-8 z-20">
+              {isOpen ? (
+                <X
+                  className="cursor-pointer"
+                  onClick={() => {
+                    setIsOpen(false);
+                  }}
+                />
+              ) : (
+                <Menu
+                  className="cursor-pointer"
+                  onClick={() => {
+                    setIsOpen(true);
+                  }}
+                />
+              )}
+            </motion.div>
+
+            <motion.div
+              variants={{
+                hidden: {
+                  x: "100%",
+                  transition: {
+                    duration: 0.5,
+                  },
+                },
+                visible: {
+                  x: 0,
+                  transition: {
+                    duration: 0.5,
+                  },
+                },
+              }}
+              initial="hidden"
+              animate={isOpen ? "visible" : "hidden"}
+              className="flex flex-col top-0 right-0 absolute backdrop-blur-xl pt-24 bg-dark-900/60 justify-start items-center text-2xl gap-10 h-screen w-60 p-5"
             >
-              Linkedin
-            </a>
-          </div>
-          <div className="flex items-center hover:underline gap-2">
-            <Github />{" "}
-            <a target="_blank" href="https://github.com/GaneshB2334/">
-              GitHub
-            </a>
-          </div>
-          <div
-            className="flex items-center hover:underline gap-2"
-          >
-            <MapPin /> <span className="">Latur</span>
+              <button
+                name="about"
+                className="hover:text-dark-100 transition-all font-bold"
+                onClick={scrollTo}
+              >
+                About
+              </button>
+              <button
+                name="skills"
+                className="hover:text-dark-100 transition-all font-bold"
+                onClick={scrollTo}
+              >
+                Skills
+              </button>
+              <button
+                name="projects"
+                className="hover:text-dark-100 transition-all font-bold"
+                onClick={scrollTo}
+              >
+                Projects
+              </button>
+            </motion.div>
           </div>
         </div>
-      </motion.div>
-      <motion.div
-        variants={{
-          hidden: {
-            opacity: 0,
-            x: -100,
-          },
-          visible: {
-            opacity: 1,
-            x: 0,
-            transition: {
-              delay: 0.5,
-              duration: 0.5,
-            },
-          },
-        }}
-        initial="hidden"
-        animate="visible"
-        className="md:flex-col text-2xl flex justify-between gap-5 md:justify-end px-5 "
-      >
-        <button
-          name="about"
-          className="hover:text-dark-100 transition-all font-bold [text-shadow:_10px_10px_2px_rgb(0_0_0_/_50%)]"
-          onClick={scrollTo}
-        >
-          About
-        </button>
-        <button
-          name="skills"
-          className="hover:text-dark-100 transition-all font-bold [text-shadow:_10px_10px_2px_rgb(0_0_0_/_50%)]"
-          onClick={scrollTo}
-        >
-          Skills
-        </button>
-        <button
-          name="projects"
-          className="hover:text-dark-100 transition-all font-bold [text-shadow:_10px_10px_2px_rgb(0_0_0_/_50%)]"
-          onClick={scrollTo}
-        >
-          Projects
-        </button>
-      </motion.div>
+      </nav>
     </div>
   );
 };
