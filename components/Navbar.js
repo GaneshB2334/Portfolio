@@ -11,12 +11,20 @@ const Navbar = () => {
     element.scrollIntoView({
       behavior: "smooth",
     });
+    setIsOpen(false);
   };
   return (
     <div className="fixed top-0 left-0 z-[100] backdrop-blur-xl">
       <nav className="w-screen text-white p-4">
-        <div className="container mx-auto flex justify-between items-center h-14">
-          <div className="text-3xl font-extrabold"><span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-600 to-violet-500 [text-shadow:2px_2px_2px_rgba(0,0,0,0.25)]">Ganesh</span> <span className="text-transparent bg-clip-text bg-gradient-to-r from-violet-500 to-cyan-600">Bastapure</span></div>
+        <div className="container flex justify-between items-center h-14">
+          <div className="text-3xl font-extrabold">
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-600 to-violet-500 [text-shadow:2px_2px_2px_rgba(0,0,0,0.25)]">
+              Ganesh
+            </span>{" "}
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-violet-500 to-cyan-600">
+              Bastapure
+            </span>
+          </div>
           <ul className="flex max-md:hidden">
             <div className="text-xl flex justify-between gap-5 md:justify-end px-5 ">
               <button

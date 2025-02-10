@@ -18,7 +18,7 @@ const Skills = () => {
 
   return (
     <div className="lg:w-full w-screen p-5 py-24 text-light-100 z-50 flex justify-center">
-      <motion.div ref={ref} className="w-full lg:w-2/3 z-100 flex flex-wrap gap-10  p-5">
+      <motion.div ref={ref} className="w-full lg:w-2/3 z-100 grid grid-cols-3 lg:flex justify-center flex-wrap gap-10  p-5">
         {icons.map((icon, index) => (
           <motion.div
           variants={{
