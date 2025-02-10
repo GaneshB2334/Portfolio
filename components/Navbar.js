@@ -42,6 +42,13 @@ const Navbar = () => {
                 Skills
               </button>
               <button
+                name="experience"
+                className="hover:text-dark-100 transition-all font-bold"
+                onClick={scrollTo}
+              >
+                Experience
+              </button>
+              <button
                 name="projects"
                 className="hover:text-dark-100 transition-all font-bold"
                 onClick={scrollTo}
@@ -101,6 +108,13 @@ const Navbar = () => {
                 onClick={scrollTo}
               >
                 Skills
+              </button>
+              <button
+                name="experience"
+                className="hover:text-dark-100 transition-all font-bold"
+                onClick={scrollTo}
+              >
+                Experience
               </button>
               <button
                 name="projects"

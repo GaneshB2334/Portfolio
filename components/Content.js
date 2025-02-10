@@ -3,6 +3,7 @@ import Skills from "./Skills";
 import Projects from "./Projects";
 import About from "./About";
 import Footer from "./Footer";
+import Experience from "./Experience";
 
 const Content = () => {
   return (
@@ -11,6 +12,8 @@ const Content = () => {
       <About />
       <div id="skills"/>
       <Skills />
+      <div id="experience"/>
+      <Experience />
       <div id="projects"/>
       <Projects />
       <Footer/>

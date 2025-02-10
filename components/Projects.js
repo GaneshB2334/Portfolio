@@ -11,34 +11,33 @@ const Projects = () => {
   useEffect(() => {
     if (isInView) {
       controls.start("visible");
-    }else{
+    } else {
       controls.start("hidden");
     }
   }, [isInView, controls]);
 
   return (
-    <div className="z-50 px-5 py-24">
-      <motion.div
-        ref={ref}
-        variants={{
-          hidden: {
-            opacity: 0,
-            x: -100,
-          },
-          visible: {
-            opacity: 1,
-            x: 0,
-            transition: {
-              delay: 0.5,
-              duration: 0.5,
+    <div ref={ref} className="z-50 px-5 py-24">
+      {projects.map((project, index) => (
+        <motion.div
+          variants={{
+            hidden: {
+              opacity: 0,
+              scale: 0.5,
             },
-          },
-        }}
-        initial="hidden"
-        animate="visible"
-        className="z-[50] flex gap-5 w-full p-5 justify-center items-center flex-wrap"
-      >
-        {projects.map((project, index) => (
+            visible: {
+              opacity: 1,
+              scale: 1,
+              transition: {
+                delay: index * 0.5,
+                duration: 0.5,
+              },
+            },
+          }}
+          initial="hidden"
+          animate={controls}
+          className="z-[50] flex gap-5 w-full p-5 justify-center items-center flex-wrap"
+        >
           <Project
             key={index}
             Link={project.Link}
@@ -47,8 +46,8 @@ const Projects = () => {
             gitHub={project.gitHub}
             title={project.title}
           />
-        ))}
-      </motion.div>
+        </motion.div>
+      ))}
     </div>
   );
 };
