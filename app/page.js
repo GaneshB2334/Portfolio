@@ -1,11 +1,11 @@
 "use client";
+import ChatUI from "@/components/ChatUI";
 import Content from "@/components/Content";
-import Footer from "@/components/Footer";
 import Navbar from "@/components/Navbar";
-import { useScroll } from "framer-motion";
+import { useState } from "react";
 
 export default function Home() {
-  const scroll = useScroll();
+  const [isChatOpen, setIsChatOpen] = useState(false);
 
   return (
     <main className="relative h-screen w-screen">
@@ -15,6 +15,14 @@ export default function Home() {
           <Content />
         </div>
       </div>
+      <button
+        onClick={() => setIsChatOpen(!isChatOpen)}
+      className="fixed bottom-0 right-0 m-10 bg-white h-16 w-16 rounded-full z-50 text-2xl">
+        AI
+      </button>
+      {
+        isChatOpen&& <ChatUI setIsChatOpen={setIsChatOpen} />
+      }
     </main>
   );
 }
