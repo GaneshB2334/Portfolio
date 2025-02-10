@@ -34,6 +34,7 @@ const Projects = () => {
               },
             },
           }}
+          key={index}
           initial="hidden"
           animate={controls}
           className="z-[50] flex gap-5 w-full p-5 justify-center items-center flex-wrap"
