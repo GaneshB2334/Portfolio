@@ -1,8 +1,7 @@
+import StarBgCanvas from "@/components/StarBgCanvas";
 import { Inter } from "next/font/google";
 import "./globals.css";
-import Footer from "@/components/Footer";
-import Navbar from "@/components/Navbar";
-import StarBgCanvas from "@/components/StarBgCanvas";
+import { Analytics } from '@vercel/analytics/next';
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -17,6 +16,7 @@ export default function RootLayout({ children }) {
       <body className={inter.className}>
         <StarBgCanvas />
         {children}
+        <Analytics />
       </body>
     </html>
   );
