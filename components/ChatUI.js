@@ -53,7 +53,7 @@ export default function ChatUI({ setIsChatOpen }) {
   }, []);
 
   return (
-    <div className="fixed z-[1000] top-0 left-0 h-screen w-screen bg-black bg-opacity-80 flex items-center lg:justify-center p-5">
+    <div className="fixed z-[1000] top-0 left-0 h-screen w-screen bg-black bg-opacity-80 flex lg:justify-center p-5">
       <div className="w-full max-w-lg bg-gray-900 p-6 rounded-xl shadow-2xl text-white">
         <div className="flex justify-between items-center mb-4">
           <h1 className="text-2xl font-semibold text-center">
