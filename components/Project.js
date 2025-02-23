@@ -11,8 +11,8 @@ import {
 
 const Project = ({ title, description, ProjectImage, gitHub, Link }) => {
   return (
-    <div className="md:w-1/2 flex justify-center items-center my-5 text-light-100">
-      <div className="bg-dark-900 shadow-lg shadow-black">
+    <div className="w-full flex justify-center items-center my-5 text-light-100">
+      <div className="bg-dark-900 shadow-lg shadow-black w-full">
         <Card>
           <CardHeader>
             <CardTitle>{title}</CardTitle>
@@ -26,7 +26,7 @@ const Project = ({ title, description, ProjectImage, gitHub, Link }) => {
               }}
               src={ProjectImage}
               alt={title}
-              className="cursor-pointer md:w-[300px] md:h-[300px] w-[200px] h-[200px] object-cover bg-black rounded-lg"
+              className="cursor-pointer md:w-full md:h-[300px] w-full h-[200px] object-cover bg-black rounded-lg"
             />
           </CardContent>
 

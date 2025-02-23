@@ -17,7 +17,7 @@ const Projects = () => {
   }, [isInView, controls]);
 
   return (
-    <div ref={ref} className="z-50 px-5 py-24">
+    <div ref={ref} className="z-50 px-5 py-24 flex flex-wrap md:grid grid-cols-2 md:w-[60vw] mx-auto gap-5">
       {projects.map((project, index) => (
         <motion.div
           variants={{
