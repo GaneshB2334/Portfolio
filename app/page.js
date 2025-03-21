@@ -3,6 +3,8 @@ import ChatUI from "@/components/ChatUI";
 import Content from "@/components/Content";
 import Navbar from "@/components/Navbar";
 import { useState } from "react";
+import "@/components/ui/button.css";
+import { ArrowUpRight, Link } from "lucide-react";
 
 export default function Home() {
   const [isChatOpen, setIsChatOpen] = useState(false);
@@ -17,12 +19,11 @@ export default function Home() {
       </div>
       <button
         onClick={() => setIsChatOpen(!isChatOpen)}
-      className="fixed bottom-0 right-0 m-10 bg-white h-16 w-16 rounded-full z-50 text-2xl">
-        AI
+        className="z-50 button-30"
+      >
+        Ask AI <ArrowUpRight className="ml-3" />
       </button>
-      {
-        isChatOpen&& <ChatUI setIsChatOpen={setIsChatOpen} />
-      }
+      {isChatOpen && <ChatUI setIsChatOpen={setIsChatOpen} />}
     </main>
   );
 }
