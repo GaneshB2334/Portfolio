@@ -18,7 +18,7 @@ const About = () => {
     "Hello, I am Ganesh Bastapure, a passionate web developer and designer. I love to create interactive and responsive websites. I am always eager to learn new technologies and implement them in my projects. I have experience in developing websites using ReactJS, NextJS, and TailwindCSS. I am also familiar with backend technologies like NodeJS, ExpressJS, and MongoDB.";
 
   return (
-    <div className="z-50 px-5 sm:px-10 content-center pt-20 sm:pt-28 pb-12 sm:pb-16 w-full flex justify-center text-white min-h-screen">
+    <div className="z-50 px-5 sm:px-10 content-center pt-20 sm:pt-28 pb-12 sm:pb-16 w-full flex justify-center items-center text-white min-h-screen">
       <div className="w-full sm:w-2/3">
         <div className="p-4 sm:p-5">
           {/* Animated Title */}
