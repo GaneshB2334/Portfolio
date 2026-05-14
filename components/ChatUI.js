@@ -126,7 +126,7 @@ export default function ChatUI({ setIsChatOpen }) {
 
         <div
           ref={chatRef}
-          className="theme-scrollbar mb-4 h-[500px] space-y-3 overflow-y-auto rounded-xl border border-white/10 bg-white/[0.025] p-3"
+          className="theme-scrollbar mb-4 h-96 md:h-[500px] space-y-3 overflow-y-auto rounded-xl border border-white/10 bg-white/[0.025] p-3"
         >
           {showEmptyState ? (
             <div className="flex h-full items-center justify-center">
