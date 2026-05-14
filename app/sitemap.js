@@ -1,6 +1,6 @@
 import blogs from "@/lib/blogData";
 
-const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "http://localhost:3000";
+const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://ganeshbastapure.vercel.app";
 
 export default function sitemap() {
   return [
