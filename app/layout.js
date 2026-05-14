@@ -5,6 +5,11 @@ import { Analytics } from "@vercel/analytics/next";
 const spaceGrotesk = Space_Grotesk({ subsets: ["latin"] });
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "http://localhost:3000";
 
+export const viewport = {
+  themeColor: "#050505",
+  colorScheme: "dark",
+};
+
 export const metadata = {
   metadataBase: new URL(siteUrl),
   title: {
@@ -25,6 +30,43 @@ export const metadata = {
   ],
   authors: [{ name: "Ganesh Bastapure", url: siteUrl }],
   creator: "Ganesh Bastapure",
+  manifest: "/favicon_io/site.webmanifest",
+  icons: {
+    icon: [
+      { url: "/favicon_io/favicon.ico", sizes: "any" },
+      {
+        url: "/favicon_io/favicon-16x16.png",
+        sizes: "16x16",
+        type: "image/png",
+      },
+      {
+        url: "/favicon_io/favicon-32x32.png",
+        sizes: "32x32",
+        type: "image/png",
+      },
+    ],
+    apple: [
+      {
+        url: "/favicon_io/apple-touch-icon.png",
+        sizes: "180x180",
+        type: "image/png",
+      },
+    ],
+    other: [
+      {
+        rel: "icon",
+        url: "/favicon_io/android-chrome-192x192.png",
+        sizes: "192x192",
+        type: "image/png",
+      },
+      {
+        rel: "icon",
+        url: "/favicon_io/android-chrome-512x512.png",
+        sizes: "512x512",
+        type: "image/png",
+      },
+    ],
+  },
   alternates: {
     canonical: "/",
   },
