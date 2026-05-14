@@ -3,7 +3,7 @@ import "./globals.css";
 import { Analytics } from "@vercel/analytics/next";
 
 const spaceGrotesk = Space_Grotesk({ subsets: ["latin"] });
-const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "http://localhost:3000";
+const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://ganeshbastapure.vercel.app/";
 
 export const viewport = {
   themeColor: "#050505",
