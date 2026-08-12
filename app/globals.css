@@ -44,3 +44,21 @@ img {
 .theme-scrollbar::-webkit-scrollbar-thumb:hover {
   background: rgba(255, 255, 255, 0.42);
 }
+
+/* Shiki output for blog code blocks.
+   Shiki inlines the theme's own background on <pre>, which would sit as an
+   opaque slab inside the block's existing container — strip it and let the
+   container's border/background show through. Padding lives on the wrapper. */
+.shiki-code pre.shiki {
+  background-color: transparent !important;
+  margin: 0;
+  padding: 0;
+}
+
+.shiki-code code {
+  display: block;
+  font-family: inherit;
+  /* Long single-line commands should scroll with the container rather than
+     wrap mid-flag, which makes a command impossible to read or copy by eye. */
+  white-space: pre;
+}

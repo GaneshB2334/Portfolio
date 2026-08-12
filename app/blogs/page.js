@@ -85,9 +85,10 @@ export default async function BlogsPage() {
         <section className="grid gap-3 pb-20">
           {hasPosts ? (
             blogs.map((blog) => (
-              <article
+              <Link
                 key={blog._id}
-                className="rounded-2xl border border-white/10 bg-white/[0.025] p-5 sm:p-6"
+                href={`/blogs/${blog.slug}`}
+                className="group block rounded-2xl border border-white/10 bg-white/[0.025] p-5 transition hover:border-white/25 hover:bg-white/[0.05] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/40 sm:p-6"
               >
                 <div className="flex flex-col justify-between gap-4 sm:flex-row sm:items-start">
                   <div>
@@ -103,13 +104,14 @@ export default async function BlogsPage() {
                       {blog.title}
                     </h2>
                   </div>
-                  <Link
-                    href={`/blogs/${blog.slug}`}
-                    className="inline-flex h-10 w-10 shrink-0 items-center justify-center rounded-full border border-white/10 text-white/45 transition hover:border-white hover:text-white"
-                    aria-label={`Read ${blog.title}`}
+                  {/* Decorative: the whole card is the link, so this must not
+                      be focusable or announced as a second destination. */}
+                  <span
+                    aria-hidden
+                    className="inline-flex h-10 w-10 shrink-0 items-center justify-center rounded-full border border-white/10 text-white/45 transition group-hover:border-white group-hover:text-white"
                   >
                     <ArrowUpRight size={18} />
-                  </Link>
+                  </span>
                 </div>
                 <p className="mt-4 max-w-3xl text-sm leading-7 text-white/55">
                   {blog.excerpt}
@@ -126,7 +128,7 @@ export default async function BlogsPage() {
                     ))}
                   </div>
                 ) : null}
-              </article>
+              </Link>
             ))
           ) : (
             <div className="rounded-2xl border border-white/10 bg-white/[0.025] p-5 text-sm leading-6 text-white/45 sm:p-6">

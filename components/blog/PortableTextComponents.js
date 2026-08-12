@@ -1,5 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
+import CodeBlock from "./CodeBlock";
 
 /**
  * Renderers for the Portable Text blocks the Studio can produce.
@@ -100,16 +101,11 @@ export const portableTextComponents = {
     },
 
     codeBlock: ({ value }) => (
-      <div className="my-10 overflow-hidden rounded-2xl border border-white/10 bg-white/[0.025]">
-        {value?.language ? (
-          <div className="border-b border-white/10 px-4 py-2 text-xs font-medium uppercase tracking-[0.2em] text-white/35">
-            {value.language}
-          </div>
-        ) : null}
-        <pre className="overflow-x-auto p-4 text-sm leading-6">
-          <code className="text-white/75">{value?.code ?? ""}</code>
-        </pre>
-      </div>
+      <CodeBlock
+        language={value?.language}
+        code={value?.code ?? ""}
+        html={value?.html}
+      />
     ),
 
     horizontalRule: () => <hr className="my-12 border-white/10" />,

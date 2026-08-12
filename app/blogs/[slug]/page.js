@@ -1,4 +1,5 @@
 import { portableTextComponents } from "@/components/blog/PortableTextComponents";
+import { highlightBody } from "@/lib/highlight";
 import { getPost, getPostSlugs } from "@/lib/sanity/queries";
 import { PortableText } from "@portabletext/react";
 import { ArrowLeft } from "lucide-react";
@@ -62,6 +63,7 @@ export default async function BlogDetailPage({ params }) {
   }
 
   const authorName = blog.author?.name || "Ganesh Bastapure";
+  const body = await highlightBody(blog.body ?? []);
 
   const schema = {
     "@context": "https://schema.org",
@@ -135,6 +137,16 @@ export default async function BlogDetailPage({ params }) {
           <p className="mt-6 text-base leading-8 text-white/55 sm:text-lg">
             {blog.excerpt}
           </p>
+          <p className="mt-6 text-sm text-white/40">
+            By {blog.author?.name || "Ganesh Bastapure"}
+            {blog.updatedAt && blog.updatedAt !== blog.publishedAt
+              ? ` · Updated ${new Date(blog.updatedAt).toLocaleDateString("en", {
+                  month: "long",
+                  day: "numeric",
+                  year: "numeric",
+                })}`
+              : ""}
+          </p>
           {blog.tags?.length ? (
             <div className="mt-7 flex flex-wrap gap-2">
               {blog.tags.map((tag) => (
@@ -164,7 +176,17 @@ export default async function BlogDetailPage({ params }) {
         ) : null}
 
         <div className="py-12">
-          <PortableText value={blog.body ?? []} components={portableTextComponents} />
+          <PortableText value={body} components={portableTextComponents} />
+        </div>
+
+        <div className="border-t border-white/10 py-10">
+          <Link
+            href="/blogs"
+            className="inline-flex h-11 items-center gap-2 rounded-full border border-white/15 px-5 text-sm font-semibold text-white transition hover:border-white"
+          >
+            <ArrowLeft size={16} />
+            All posts
+          </Link>
         </div>
 
         {blog.faq?.length ? (

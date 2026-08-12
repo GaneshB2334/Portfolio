@@ -331,7 +331,7 @@ export default function Home({ blogs = [] }) {
                 Blogs
               </p>
               <h2 className="mt-3 text-3xl font-semibold tracking-[-0.04em] sm:text-5xl">
-                No posts yet.
+                {blogs.length > 0 ? "Writing." : "No posts yet."}
               </h2>
             </div>
             <Link
@@ -346,9 +346,10 @@ export default function Home({ blogs = [] }) {
           {blogs.length > 0 ? (
             <div className="mt-10 grid gap-3 md:grid-cols-3">
               {blogs.map((blog) => (
-                <article
+                <Link
                   key={blog._id}
-                  className="rounded-xl border border-white/10 bg-white/[0.025] p-4"
+                  href={`/blogs/${blog.slug}`}
+                  className="group block rounded-xl border border-white/10 bg-white/[0.025] p-4 transition hover:border-white/25 hover:bg-white/[0.05] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/40"
                 >
                   <p className="text-xs font-medium text-white/35">
                     {new Date(blog.publishedAt).toLocaleDateString("en", {
@@ -358,20 +359,24 @@ export default function Home({ blogs = [] }) {
                     })}
                     {blog.readingTime ? ` / ${blog.readingTime} min read` : ""}
                   </p>
-                  <h3 className="mt-3 text-lg font-semibold tracking-[-0.03em]">
+                  <h3 className="mt-3 text-lg font-semibold tracking-[-0.03em] transition group-hover:text-white">
                     {blog.title}
                   </h3>
                   <p className="mt-2 text-xs leading-5 text-white/50">
                     {blog.excerpt}
                   </p>
-                  <Link
-                    href={`/blogs/${blog.slug}`}
-                    className="mt-4 inline-flex items-center gap-1.5 text-xs font-semibold text-white transition hover:text-white/70"
-                  >
+                  {/* Not a nested <Link> — the whole card is the link now, and
+                      an anchor inside an anchor is invalid HTML that React
+                      hydrates inconsistently. This is the visual affordance
+                      only. */}
+                  <span className="mt-4 inline-flex items-center gap-1.5 text-xs font-semibold text-white">
                     Read post
-                    <ArrowUpRight size={13} />
-                  </Link>
-                </article>
+                    <ArrowUpRight
+                      size={13}
+                      className="transition group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
+                    />
+                  </span>
+                </Link>
               ))}
             </div>
           ) : (
