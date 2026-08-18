@@ -113,7 +113,7 @@ export default async function BlogDetailPage({ params }) {
         />
       ) : null}
 
-      <article className="mx-auto max-w-3xl">
+      <article className="mx-auto max-w-5xl">
         <Link
           href="/blogs"
           className="inline-flex h-10 items-center gap-2 rounded-full border border-white/15 px-4 text-sm font-semibold text-white transition hover:border-white"
